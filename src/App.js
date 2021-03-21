@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Customers from "./components/Customers";
+
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
+  //get customers from db json
+  const [customers, setCustomers] = useState([]);
+
+  useEffect(() => {
+    const getAllCustomers = async () => {
+      const customers = await getCustomersFromDb();
+      setCustomers(customers);
+    };
+    getAllCustomers();
+  });
+
+  const getCustomersFromDb = async () => {
+    const res = await fetch("http://localhost:5000/customers");
+    const data = await res.json();
+    return data;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header title="Customer Information" />
+      {customers.length > 0 ? (
+        <Customers customers={customers} />
+      ) : (
+        "No Customers to show !!"
+      )}
     </div>
   );
 }
