@@ -4,7 +4,7 @@ const Customers = ({ customers }) => {
   return (
     <>
       {customers.map((customer) => (
-        <Customer key={customer.CustomerId} customer={customer} />
+        <Customer key={customer.id} customer={customer} />
       ))}
     </>
   );

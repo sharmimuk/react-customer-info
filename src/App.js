@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Customers from "./components/Customers";
+import AddCustomer from "./components/AddCustomer";
 
 import { useState, useEffect } from "react";
 import "./App.css";
@@ -22,9 +23,28 @@ function App() {
     return data;
   };
 
+  const [showAddCustomer, setShowAddCustomers] = useState(false);
+  const addCustomer = async (customer) => {
+    const res = await fetch("http://localhost:5000/customers", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(customer),
+    });
+    const data = await res.json();
+    setCustomers([...customers, data]);
+  };
+
   return (
     <div className="container">
-      <Header title="Customer Information" />
+      <Header
+        title="Customer Information"
+        onAdd={() => setShowAddCustomers(!showAddCustomer)}
+        showAdd={showAddCustomer}
+      />
+
+      {showAddCustomer && <AddCustomer onAdd={addCustomer} />}
       {customers.length > 0 ? (
         <Customers customers={customers} />
       ) : (

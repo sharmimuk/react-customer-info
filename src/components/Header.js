@@ -1,10 +1,14 @@
-const Header = ({ title }) => {
+import Button from "./Button";
+
+const Header = ({ title, onAdd, showAdd }) => {
   return (
     <div className="header">
       <h1>{title}</h1>
-      <button className="btn" style={{ backgroundColor: "green" }}>
-        Add
-      </button>
+      <Button
+        color={showAdd ? "red" : "green"}
+        text={showAdd ? "Close" : "Add"}
+        onClick={onAdd}
+      />
     </div>
   );
 };

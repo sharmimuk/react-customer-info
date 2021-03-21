@@ -1,19 +1,24 @@
 {
-    "customers": [
-        {
-            "CustomerId": "1",
-            "CustomerName": "John Doe",
-            "Location": "San Diego"
-        },
-        {
-            "CustomerId": "2",
-            "CustomerName": "Abe Dilly",
-            "Location": "Washington D.C"
-        },
-        {
-            "CustomerId": "3",
-            "CustomerName": "Hasan Minhaj",
-            "Location": "New York"
-        }
-    ]
+  "customers": [
+    {
+      "id": "1",
+      "CustomerName": "John Doe",
+      "Location": "San Diego"
+    },
+    {
+      "id": "2",
+      "CustomerName": "Abe Dilly",
+      "Location": "Washington D.C"
+    },
+    {
+      "id": "3",
+      "CustomerName": "Hasan Minhaj",
+      "Location": "New York"
+    },
+    {
+      "CustomerName": "Jane",
+      "Location": "LA",
+      "id": "4"
+    }
+  ]
 }
