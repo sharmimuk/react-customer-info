@@ -1,6 +1,6 @@
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
-const Customer = ({ customer }) => {
+const Customer = ({ customer, onDelete }) => {
   return (
     <div className="customer">
       <h3>
@@ -10,7 +10,10 @@ const Customer = ({ customer }) => {
       <br />
       <h3>
         {customer.Location}
-        <FaTrash style={{ cursor: "pointer", float: "right" }} />
+        <FaTrash
+          style={{ cursor: "pointer", float: "right" }}
+          onClick={() => onDelete(customer.id)}
+        />
       </h3>
     </div>
   );

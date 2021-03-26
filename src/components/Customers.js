@@ -1,10 +1,10 @@
 import Customer from "./Customer";
 
-const Customers = ({ customers }) => {
+const Customers = ({ customers, onDelete }) => {
   return (
     <>
       {customers.map((customer) => (
-        <Customer key={customer.id} customer={customer} />
+        <Customer key={customer.id} customer={customer} onDelete={onDelete} />
       ))}
     </>
   );

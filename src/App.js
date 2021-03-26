@@ -23,6 +23,7 @@ function App() {
     return data;
   };
 
+  // Add a new customer
   const [showAddCustomer, setShowAddCustomers] = useState(false);
   const addCustomer = async (customer) => {
     const res = await fetch("http://localhost:5000/customers", {
@@ -36,6 +37,14 @@ function App() {
     setCustomers([...customers, data]);
   };
 
+  // Delete a selected customer
+  const deleteCustomer = async (id) => {
+    await fetch(`http://localhost:5000/customers/${id}`, {
+      method: "DELETE",
+    });
+    setCustomers(customers.filter((customer) => customer.id !== id));
+  };
+
   return (
     <div className="container">
       <Header
@@ -46,7 +55,7 @@ function App() {
 
       {showAddCustomer && <AddCustomer onAdd={addCustomer} />}
       {customers.length > 0 ? (
-        <Customers customers={customers} />
+        <Customers customers={customers} onDelete={deleteCustomer} />
       ) : (
         "No Customers to show !!"
       )}
