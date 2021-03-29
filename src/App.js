@@ -37,6 +37,19 @@ function App() {
     setCustomers([...customers, data]);
   };
 
+  // Update a selected customer
+  const updateCustomer = async (customer) => {
+    const res = await fetch(`http://localhost:5000/customers/${customer.id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(customer),
+    });
+    const data = await res.json();
+    setCustomers([...customers, data]);
+  };
+
   // Delete a selected customer
   const deleteCustomer = async (id) => {
     await fetch(`http://localhost:5000/customers/${id}`, {
@@ -55,7 +68,11 @@ function App() {
 
       {showAddCustomer && <AddCustomer onAdd={addCustomer} />}
       {customers.length > 0 ? (
-        <Customers customers={customers} onDelete={deleteCustomer} />
+        <Customers
+          customers={customers}
+          onDelete={deleteCustomer}
+          onEdit={updateCustomer}
+        />
       ) : (
         "No Customers to show !!"
       )}

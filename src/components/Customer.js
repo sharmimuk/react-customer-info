@@ -1,17 +1,11 @@
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import EditCustomer from "./EditCustomer";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Customer = ({ customer, onDelete, onEdit }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isPopupClose, setIsPopupClose] = useState(true);
-
-  useEffect(() => {
-    console.log("isPopupOpen ==== ", isPopupOpen);
-    console.log("isPopupClose ==== ", isPopupClose);
-    console.log("isEdit ==== ", isEdit);
-  }, [isPopupOpen, isEdit, isPopupClose]);
 
   const onPencilClick = () => {
     setIsEdit(!isEdit);

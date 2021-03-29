@@ -2,18 +2,23 @@
   "customers": [
     {
       "id": 1,
-      "CustomerName": "John Doe",
+      "CustomerName": "Jane Doe",
       "Location": "San Diego"
-    },
-    {
-      "id": 2,
-      "CustomerName": "Abe Dilly",
-      "Location": "Washington D.C"
     },
     {
       "CustomerName": "Aliyah",
       "Location": "Johannesburg",
       "id": 5
+    },
+    {
+      "id": 6,
+      "CustomerName": "Johnny Van Ness",
+      "Location": "California"
+    },
+    {
+      "id": 7,
+      "CustomerName": "Bobby Berk",
+      "Location": "LA"
     }
   ]
 }
