@@ -18,7 +18,7 @@ function App() {
   });
 
   const getCustomersFromDb = async () => {
-    const res = await fetch("http://localhost:5000/customers");
+    const res = await fetch("http://localhost:5005/customers");
     const data = await res.json();
     return data;
   };
@@ -26,7 +26,7 @@ function App() {
   // Add a new customer
   const [showAddCustomer, setShowAddCustomers] = useState(false);
   const addCustomer = async (customer) => {
-    const res = await fetch("http://localhost:5000/customers", {
+    const res = await fetch("http://localhost:5005/customers", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,21 +38,20 @@ function App() {
   };
 
   // Update a selected customer
-  const updateCustomer = async (customer) => {
-    const res = await fetch(`http://localhost:5000/customers/${customer.id}`, {
+  const updateCustomer = async (id, customer) => {
+    await fetch(`http://localhost:5005/customers/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(customer),
     });
-    const data = await res.json();
-    setCustomers([...customers, data]);
+    setCustomers(customers.filter((customer) => customer.id !== id));
   };
 
   // Delete a selected customer
   const deleteCustomer = async (id) => {
-    await fetch(`http://localhost:5000/customers/${id}`, {
+    await fetch(`http://localhost:5005/customers/${id}`, {
       method: "DELETE",
     });
     setCustomers(customers.filter((customer) => customer.id !== id));

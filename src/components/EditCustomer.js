@@ -18,12 +18,11 @@ const EditCustomer = (props) => {
     }
 
     const customerData = {
-      id: props.customer.id,
       CustomerName: CustomerName,
       Location: Location,
     };
 
-    props.onEdit(customerData);
+    props.onEdit(props.customer.id, customerData);
     setCustomerName("");
     setLocation("");
     props.onClose();

@@ -1,24 +1,19 @@
 {
   "customers": [
     {
-      "id": 1,
-      "CustomerName": "Jane Doe",
-      "Location": "San Diego"
+      "CustomerName": "Alex Duvall",
+      "Location": "San Diego",
+      "id": 1
     },
     {
-      "CustomerName": "Aliyah",
-      "Location": "Johannesburg",
-      "id": 5
+      "CustomerName": "Karamo Brown",
+      "Location": "Los Angeles",
+      "id": 8
     },
     {
-      "id": 6,
-      "CustomerName": "Johnny Van Ness",
-      "Location": "California"
-    },
-    {
-      "id": 7,
-      "CustomerName": "Bobby Berk",
-      "Location": "LA"
+      "CustomerName": "Tanveer",
+      "Location": "London",
+      "id": 9
     }
   ]
 }
